@@ -37,6 +37,8 @@
 					</nav>
 
                 <!-- Main -->
+                <div id="progressbar"></div>
+                <div id="scrollPath"></div>
 					<div id="main">
 						<div class="inner">
                             <header>
@@ -155,6 +157,13 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+            <script type="text/javascript">
+                let progress = document.getElementById('progressbar');
+                let totalHeight = document.body.scrollHeight - window.innerHeight;
+                window.onscroll = function(){
+                    let progressHeight = (window.pageYOffset / totalHeight) * 100;
+                    progress.style.height = progressHeight + "%";
+                }
+            </script>
 	</body>
 </html>
